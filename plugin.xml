@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-hikvisionVedio" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>cordova-plugin-hikvisionVedio</name>
+    <js-module name="hikvision" src="www/cordova-plugin-hikvisionVedio.js">
+        <clobbers target="hikvision" />
+    </js-module>
+
+    <platform name = "android">
+            <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="Hikvision" >
+                <param name="android-package" value="com.thomas.hikvision.Hikvision"/>
+            </feature>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+          <uses-permission android:name="android.permission.INTERNET"/>
+                <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+                <uses-permission android:name="android.permission.CAPTURE_AUDIO_OUTPUT"/>
+                <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+          <activity android:name="com.thomas.hikvision.HikvisionActivity" />
+          <activity android:name="com.thomas.hikvision.HikvisionSingleActivity" />
+          <activity android:name="com.thomas.hikvision.CaptureRecord" />
+            </config-file>
+
+
+
+        <!--lib-->
+        <source-file src="src/android/libs/AudioEngineSDK.jar" target-dir="libs"/>
+        <source-file src="src/android/libs/HCNetSDK.jar" target-dir="libs"/>
+
+        <source-file src="src/android/libs/jna.jar" target-dir="libs"/>
+        <source-file src="src/android/libs/PlayerSDK.jar" target-dir="libs"/>
+        <source-file src="src/android/libs/fastjson-1.2.22.jar" target-dir="libs"/>
+
+        <source-file src="src/android/libs/armeabi/libAudioEngine.so" target-dir="libs/armeabi"/>
+    <source-file src="src/android/libs/armeabi/libCpuFeatures.so" target-dir="libs/armeabi"/>
+    <source-file src="src/android/libs/armeabi/libgnustl_shared.so" target-dir="libs/armeabi"/>
+    <source-file src="src/android/libs/armeabi/libHCAlarm.so" target-dir="libs/armeabi"/>
+    <source-file src="src/android/libs/armeabi/libHCCore.so" target-dir="libs/armeabi"/>
+    <source-file src="src/android/libs/armeabi/libHCCoreDevCfg.so" target-dir="libs/armeabi"/>
+    <source-file src="src/android/libs/armeabi/libHCDisplay.so" target-dir="libs/armeabi"/>
+    <source-file src="src/android/libs/armeabi/libHCGeneralCfgMgr.so" target-dir="libs/armeabi"/>
+    <source-file src="src/android/libs/armeabi/libHCIndustry.so" target-dir="libs/armeabi"/>
+    <source-file src="src/android/libs/armeabi/libhcnetsdk.so" target-dir="libs/armeabi"/>
+    <source-file src="src/android/libs/armeabi/libHCPlayBack.so" target-dir="libs/armeabi"/>
+    <source-file src="src/android/libs/armeabi/libHCPreview.so" target-dir="libs/armeabi"/>
+    <source-file src="src/android/libs/armeabi/libHCVoiceTalk.so" target-dir="libs/armeabi"/>
+    <source-file src="src/android/libs/armeabi/libjnidispatch.so" target-dir="libs/armeabi"/>
+    <source-file src="src/android/libs/armeabi/libopensslwrap.so" target-dir="libs/armeabi"/>
+    <source-file src="src/android/libs/armeabi/libPlayCtrl.so" target-dir="libs/armeabi"/>
+    <source-file src="src/android/libs/armeabi/libSystemTransform.so" target-dir="libs/armeabi"/>
+    <source-file src="src/android/libs/armeabi/libAudioEngine.so" target-dir="libs/armeabi-v7a"/>
+    <source-file src="src/android/libs/armeabi/libCpuFeatures.so" target-dir="libs/armeabi-v7a"/>
+    <source-file src="src/android/libs/armeabi/libgnustl_shared.so" target-dir="libs/armeabi-v7a"/>
+    <source-file src="src/android/libs/armeabi/libHCAlarm.so" target-dir="libs/armeabi-v7a"/>
+    <source-file src="src/android/libs/armeabi/libHCCore.so" target-dir="libs/armeabi-v7a"/>
+    <source-file src="src/android/libs/armeabi/libHCCoreDevCfg.so" target-dir="libs/armeabi-v7a"/>
+    <source-file src="src/android/libs/armeabi/libHCDisplay.so" target-dir="libs/armeabi-v7a"/>
+    <source-file src="src/android/libs/armeabi/libHCGeneralCfgMgr.so" target-dir="libs/armeabi-v7a"/>
+    <source-file src="src/android/libs/armeabi/libHCIndustry.so" target-dir="libs/armeabi-v7a"/>
+    <source-file src="src/android/libs/armeabi/libhcnetsdk.so" target-dir="libs/armeabi-v7a"/>
+    <source-file src="src/android/libs/armeabi/libHCPlayBack.so" target-dir="libs/armeabi-v7a"/>
+    <source-file src="src/android/libs/armeabi/libHCPreview.so" target-dir="libs/armeabi-v7a"/>
+    <source-file src="src/android/libs/armeabi/libHCVoiceTalk.so" target-dir="libs/armeabi-v7a"/>
+    <source-file src="src/android/libs/armeabi/libjnidispatch.so" target-dir="libs/armeabi-v7a"/>
+    <source-file src="src/android/libs/armeabi/libopensslwrap.so" target-dir="libs/armeabi-v7a"/>
+    <source-file src="src/android/libs/armeabi/libPlayCtrl.so" target-dir="libs/armeabi-v7a"/>
+    <source-file src="src/android/libs/armeabi/libSystemTransform.so" target-dir="libs/armeabi-v7a"/>
+        <!--layout-->
+            <source-file src="src/android/res/layout/activity_capture_record.xml" target-dir="res/layout"/>
+        <source-file src="src/android/res/layout/activity_hikvision_singleshow.xml" target-dir="res/layout"/>
+        <source-file src="src/android/res/layout/activity_hikvision.xml" target-dir="res/layout"/>
+        <source-file src="src/android/res/layout/popupwindow_hikvision.xml" target-dir="res/layout"/>
+        <source-file src="src/android/res/layout/wheel_view.xml" target-dir="res/layout"/>
+        <!--mipmap-->
+        <source-file src="src/android/res/mipmap-xhdpi/body_bg.png" target-dir="res/mipmap-xhdpi"/>
+        <source-file src="src/android/res/mipmap-xhdpi/btn_back.png" target-dir="res/mipmap-xhdpi"/>
+        <!--anim-->
+        <source-file src="src/android/res/anim/activity_translate_in.xml" target-dir="res/anim"/>
+        <source-file src="src/android/res/anim/activity_translate_out.xml" target-dir="res/anim"/>
+        <!--values-->
+        <source-file src="src/android/res/values/hikvision_styles.xml" target-dir="res/values"/>
+            <!--src-->
+        <source-file src="src/android/src/com/thomas/hikvision/CanteenBean.java" target-dir="src/com/thomas/hikvision"/>
+        <source-file src="src/android/src/com/thomas/hikvision/CaptureRecord.java" target-dir="src/com/thomas/hikvision"/>
+
+            <source-file src="src/android/src/com/thomas/hikvision/CommonMethod.java" target-dir="src/com/thomas/hikvision"/>
+        <source-file src="src/android/src/com/thomas/hikvision/ConfigTest.java" target-dir="src/com/thomas/hikvision"/>
+        <source-file src="src/android/src/com/thomas/hikvision/CrashUtil.java" target-dir="src/com/thomas/hikvision"/>
+        <source-file src="src/android/src/com/thomas/hikvision/HCNetSDKByJNA.java" target-dir="src/com/thomas/hikvision"/>
+        <source-file src="src/android/src/com/thomas/hikvision/HCNetSDKJNAInstance.java" target-dir="src/com/thomas/hikvision"/>
+        <source-file src="src/android/src/com/thomas/hikvision/Hikvision.java" target-dir="src/com/thomas/hikvision"/>
+        <source-file src="src/android/src/com/thomas/hikvision/HikvisionActivity.java" target-dir="src/com/thomas/hikvision"/>
+        <source-file src="src/android/src/com/thomas/hikvision/HikvisionSingleActivity.java" target-dir="src/com/thomas/hikvision"/>
+
+        <source-file src="src/android/src/com/thomas/hikvision/PlaySurfaceView.java" target-dir="src/com/thomas/hikvision"/>
+        <source-file src="src/android/src/com/thomas/hikvision/PlaySurfaceViewCallBack.java" target-dir="src/com/thomas/hikvision"/>
+        <source-file src="src/android/src/com/thomas/hikvision/ScreenTest.java" target-dir="src/com/thomas/hikvision"/>
+        <source-file src="src/android/src/com/thomas/hikvision/VoiceTalk.java" target-dir="src/com/thomas/hikvision"/>
+        <source-file src="src/android/src/com/thomas/hikvision/WheelView.java" target-dir="src/com/thomas/hikvision"/>
+    </platform>
+</plugin>
